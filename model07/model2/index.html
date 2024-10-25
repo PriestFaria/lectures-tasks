@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моделирование потенциального поля</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-light">
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">Моделирование потенциального поля</h1>
+
+    <div class="card p-4 mb-4 shadow-sm">
+        <h5 class="card-title text-center">Параметры моделирования</h5>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="gravity" class="form-label">Ускорение свободного падения (g, м/с²):</label>
+                <input type="number" id="gravity" class="form-control" value="9.81" step="0.01">
+            </div>
+            <div class="col-md-6">
+                <label for="springConstant" class="form-label">Коэффициент упругости (k):</label>
+                <input type="number" id="springConstant" class="form-control" value="1" step="0.01">
+            </div>
+            <div class="col-md-6">
+                <label for="mass" class="form-label">Масса (кг):</label>
+                <input type="number" id="mass" class="form-control" value="1">
+            </div>
+            <div class="col-md-6">
+                <label for="width" class="form-label">Ширина области (м):</label>
+                <input type="number" id="width" class="form-control" value="10" step="0.1">
+            </div>
+            <div class="col-md-6">
+                <label for="height" class="form-label">Высота области (м):</label>
+                <input type="number" id="height" class="form-control" value="10" step="0.1">
+            </div>
+            <div class="col-md-6">
+                <label for="scenario" class="form-label">Сценарий:</label>
+                <select id="scenario" class="form-select">
+                    <option value="both">Сила тяжести и сила упругости</option>
+                    <option value="gravity">Только сила тяжести</option>
+                </select>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" onclick="updateSimulation()">Запустить симуляцию</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm p-3">
+                <h5>Потенциальное поле</h5>
+                <div id="potentialField" style="height: 600px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
