@@ -65,7 +65,7 @@ function updateSimulation() {
         mode: 'lines',
         name: 'Скорость',
         line: { color: 'red' }
-    }], { title: 'Скорость vs Время', xaxis: { title: 'Время (с)' }, yaxis: { title: 'Скорость (м/с)' } });
+    }], { title: 'Скорость', xaxis: { title: 'Время (с)' }, yaxis: { title: 'Скорость (м/с)' } });
 
     Plotly.newPlot("x-time", [{
         x: data.time,
@@ -73,7 +73,7 @@ function updateSimulation() {
         mode: 'lines',
         name: 'Координата X',
         line: { color: 'green' }
-    }], { title: 'Координата X vs Время', xaxis: { title: 'Время (с)' }, yaxis: { title: 'X (м)' } });
+    }], { title: 'Координата X', xaxis: { title: 'Время (с)' }, yaxis: { title: 'X (м)' } });
 
     Plotly.newPlot("y-time", [{
         x: data.time,
@@ -81,7 +81,7 @@ function updateSimulation() {
         mode: 'lines',
         name: 'Координата Y',
         line: { color: 'purple' }
-    }], { title: 'Координата Y vs Время', xaxis: { title: 'Время (с)' }, yaxis: { title: 'Y (м)' } });
+    }], { title: 'Координата Y', xaxis: { title: 'Время (с)' }, yaxis: { title: 'Y (м)' } });
 }
 
 
