@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Преломление вектора E на границе диэлектриков</title>
+
+    <!-- Подключаем Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Подключаем Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Настройка MathJax для рендеринга LaTeX -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      id="MathJax-script"
+      async
+    ></script>
+    <!-- Подключаем наш скрипт -->
+    <script src="script.js" defer></script>
+
+    <style>
+      body {
+        margin: 20px;
+      }
+      #plot {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <h1 class="my-4">
+        Визуализация преломления линий напряжённости \( \mathbf{E} \) (или \(
+        \mathbf{D} \))
+      </h1>
+
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label for="epsilon1" class="form-label">
+            Диэлектрическая проницаемость \( \varepsilon_1 \) (среда 1):
+          </label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="epsilon1"
+            value="2"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="epsilon2" class="form-label">
+            Диэлектрическая проницаемость \( \varepsilon_2 \) (среда 2):
+          </label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="epsilon2"
+            value="5"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label for="E1" class="form-label">
+            Модуль поля \( E_1 \) (в среде 1) [усл. единицы]:
+          </label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="E1"
+            value="1"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="theta1" class="form-label">
+            Угол \( \theta_1 \) (градусы, от нормали):
+          </label>
+          <input
+            type="number"
+            step="1"
+            class="form-control"
+            id="theta1"
+            value="30"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <button id="updatePlot" class="btn btn-primary">
+            Перестроить график
+          </button>
+        </div>
+      </div>
+
+      <div id="plot" class="border bg-white"></div>
+
+      <div class="alert alert-info mt-4">
+        <p class="mb-0">
+          <strong>Граничные условия:</strong><br />
+          $$ E_{1}\sin(\theta_1) = E_{2}\sin(\theta_2) $$ $$
+          \varepsilon_1\,E_{1}\cos(\theta_1) =
+          \varepsilon_2\,E_{2}\cos(\theta_2) $$
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
