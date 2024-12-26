@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Расчет параметров конденсатора</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center">Расчет параметров плоского конденсатора</h2>
+
+      <div class="form-group">
+        <label for="voltage">Напряжение (U, В):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="voltage"
+          placeholder="Введите напряжение"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="distance">Расстояние между пластинами (d, м):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="distance"
+          placeholder="Введите расстояние"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="area">Площадь пластин (A, м²):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="area"
+          placeholder="Введите площадь"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="dielectric"
+          >Относительная проницаемость диэлектрика (εr):</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="dielectric"
+          placeholder="Введите относительную проницаемость"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="connection"
+          >Подключен ли конденсатор к источнику питания?</label
+        >
+        <select class="form-control" id="connection">
+          <option value="connected">Да</option>
+          <option value="disconnected">Нет</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" onclick="calculateCapacitor()">
+        Рассчитать параметры
+      </button>
+
+      <h3 class="mt-4">Результаты</h3>
+      <div id="result"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
